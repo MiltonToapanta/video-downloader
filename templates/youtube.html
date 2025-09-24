@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Downloader</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <h1>Video Downloader</h1>
+        </div>
+        <p class="subtitle">Descarga cualquier video de Internet de manera rápida y sencilla.</p>
+    </header>
+
+    <main>
+        <form action="/" method="post">
+            <label for="url">URL del video:</label>
+            <input type="text" id="url" name="url" placeholder="Pega aquí el enlace" required>
+
+            <label for="formato">Formato:</label>
+            <select id="formato" name="formato">
+                <option value="high">Alta resolución</option>
+                <option value="720p">720p</option>
+                <option value="360p">360p</option>
+            </select>
+
+            <button type="submit">Descargar</button>
+        </form>
+
+        {% if mensaje %}
+        <div class="mensaje">{{ mensaje }}</div>
+        {% endif %}
+    </main>
+
+    <footer>
+        <p>Desarrollado por <strong>Milton Toapanta</strong></p>
+    </footer>
+</body>
+</html>
